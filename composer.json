@@ -1,0 +1,12 @@
+{
+    "name": "letteryourself/project",
+    "description": "Software Engineering Course Project.",
+    "license": "Apache2",
+    "authors": [
+        {
+            "name": "Suleyman Oner",
+            "email": "suleymanoner1999@gmail.com"
+        }
+    ],
+    "require": {}
+}
