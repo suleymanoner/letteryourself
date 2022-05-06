@@ -8,5 +8,10 @@
             "email": "suleymanoner1999@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "mikecao/flight": "^2.0",
+        "zircote/swagger-php": "3.1",
+        "swiftmailer/swiftmailer": "6.0",
+        "firebase/php-jwt": "5.2"
+    }
 }
