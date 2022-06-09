@@ -5,7 +5,7 @@
  * @OA\Info(title="LetterYourself API", version="0.1")
  * @OA\OpenApi(
  *   @OA\Server(url="http://localhost/letteryourself/api/", description="Development Environment"),
- *   @OA\Server(url="Production URL HERE", description="Production Environment"),
+ *   @OA\Server(url="https://letteryourself.herokuapp.com/api/", description="Production Environment"),
  * ),
  * @OA\SecurityScheme(
  *      securityScheme="ApiKeyAuth",
