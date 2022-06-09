@@ -7,7 +7,6 @@ class Login {
     }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('token')) {
-      $('#change-password-token').val(urlParams.get('token'));
       Login.showChangePasswordForm();
     }
   }
@@ -42,6 +41,23 @@ class Login {
       $('#register-form-container').addClass('hidden');
       $('#form-alert').removeClass('hidden');
       $('#form-alert .alert').html(data.message);
+      window.location = 'confirmation.html';
+    }, (jqXHR, textStatus, errorThrown) => {
+      $('#register-link').prop('disabled', false);
+      toastr.error(jqXHR.responseJSON.message);
+    });
+  }
+
+  
+  static doConfirmCheck() {
+    const params = new URLSearchParams(document.location.search);
+    const token = params.get("token");
+
+    console.log(token)
+
+    RestClient.post('api/confirm', {"token": token}, (data) => {
+      window.localStorage.setItem('token', data.token);
+      window.location = 'index.html';
     }, (jqXHR, textStatus, errorThrown) => {
       $('#register-link').prop('disabled', false);
       toastr.error(jqXHR.responseJSON.message);
@@ -65,8 +81,10 @@ class Login {
 
     RestClient.post('api/forgot', Utils.jsonize_form('#forgot-form'), (data) => {
       $('#forgot-form-container').addClass('hidden');
+      $('#forgot-link').prop('disabled', false);
       $('#form-alert').removeClass('hidden');
       $('#form-alert .alert').html(data.message);
+      $('#login-form-container').removeClass('hidden');
     }, (jqXHR, textStatus, errorThrown) => {
       $('#forgot-link').prop('disabled', false);
       $('#forgot-form-container').addClass('hidden');
@@ -76,8 +94,15 @@ class Login {
 
   static doChangePassword() {
     $('#change-link').prop('disabled', true);
+    var token = location.search.split('token=')[1]
+    var password = document.getElementById("password-changed").value;
 
-    RestClient.post('api/reset', Utils.jsonize_form('#change-form'), (data) => {
+    var data = {
+      "token": token,
+      "password": password
+    };
+    
+    RestClient.post('api/reset', data, (data) => {
       window.localStorage.setItem('token', data.token);
       window.location = 'index.html';
     }, (jqXHR, textStatus, errorThrown) => {

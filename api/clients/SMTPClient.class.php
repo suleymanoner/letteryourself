@@ -25,9 +25,9 @@ class SMTPClient
     public function send_register_token($person)
     {
         $message = (new Swift_Message('Confirm your account'))
-            ->setFrom(['suyo571oner@gmail.com' => 'LetterYourself'])
+            ->setFrom(['suleymanoner1999@gmail.com' => 'LetterYourself'])
             ->setTo([$person['email']])
-            ->setBody('Here is the confirmation token: http://localhost/letteryourself/api/confirm/' . $person['token']);
+            ->setBody('Here is the confirmation token: https://letteryourself.herokuapp.com/confirmation.html?token=' . $person['token']);
 
         $this->mailer->send($message);
     }
@@ -39,9 +39,9 @@ class SMTPClient
     public function send_person_recovery_token($person)
     {
         $message = (new Swift_Message('Reset your account'))
-            ->setFrom(['suyo571oner@gmail.com' => 'LetterYourself'])
+            ->setFrom(['suleymanoner1999@gmail.com' => 'LetterYourself'])
             ->setTo([$person['email']])
-            ->setBody('Here is the recovery token: http://localhost/letteryourself/login.html?token=' . $person['token']);
+            ->setBody('Here is the recovery token: https://letteryourself.herokuapp.com/login.html?token=' . $person['token']);
 
         $this->mailer->send($message);
     }

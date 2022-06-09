@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Confirmation Page</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./assets/css/startmin.css" rel="stylesheet">
+
+        <!-- Progress Bar -->
+        <link href="./assets/css/progress-bar.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="./assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <div style="text-align:center; margin-top: 50px;" >
+            <h1>Confirmation of your account...</h1>
+            <h3>Please check your email...</h3>
+            <div class="loader"></div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="./assets/js/jquery.min.js"></script>
+       
+        <!-- Toastr JS -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="./assets/js/restClient.js"></script>
+        <script src="./assets/js/controllers/login.js"></script>
+
+        <script type="text/javascript">
+            Login.doConfirmCheck();
+        </script>
+    </body>
+</html>

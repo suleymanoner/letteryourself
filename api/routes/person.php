@@ -78,12 +78,20 @@ Flight::route('POST /register', function () {
 });
 
 /**
- * @OA\Get( path="/confirm/{token}", tags={"login"},
- *     @OA\Parameter( type="string", in="path", name="token", default=12345, description="Temporary token for activate account"),
+ * @OA\Post( path="/confirm", tags={"login"},
+ *     @OA\RequestBody(description="Token", required=true,
+ *         @OA\MediaType(
+ *            mediaType="application/json",
+ *            @OA\Schema(
+ *                @OA\Property(property="token", required="true", type="string", example="token", description="Token for confirmation."),
+ *            )
+ *        )
+ * ),
  *     @OA\Response(response="200", description="Successfull activation.")
  * )
  */
-Flight::route('GET /confirm/@token', function ($token) {
+Flight::route('POST /confirm', function () {
+    $token = Flight::request()->data->token;
     Flight::json(Flight::jwt(Flight::personService()->confirm($token)));
 });
 
