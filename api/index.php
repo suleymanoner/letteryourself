@@ -16,11 +16,11 @@ require_once dirname(__FILE__) . '/services/CommunicationService.class.php';
 
 Flight::set('flight.log_errors', TRUE);
 
-/* Error handling for API
+/* Error handling for API*/
 Flight::map('error', function (Exception $ex) {
     // it handles error and changes html format to application/json format.
     Flight::json(["message" => $ex->getMessage()], $ex->getCode() ? $ex->getCode() : 500);
-});*/
+});
 
 // This method parse query parameters.
 Flight::map('query', function ($name, $default_value = '') {
