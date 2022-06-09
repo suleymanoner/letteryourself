@@ -10,7 +10,7 @@ class config
   }
   public static function DB_USERNAME()
   {
-    return Config::get_env("DB_USERNAME", "letteryourself");
+    return Config::get_env("DB_USERNAME", "");
   }
   public static function DB_PASSWORD()
   {
@@ -18,7 +18,7 @@ class config
   }
   public static function DB_SCHEME()
   {
-    return Config::get_env("DB_SCHEME", "letter_yourself");
+    return Config::get_env("DB_SCHEME", "");
   }
   public static function DB_PORT()
   {
@@ -26,11 +26,11 @@ class config
   }
   public static function SMTP_HOST()
   {
-    return Config::get_env("SMTP_HOST", "smtp.gmail.com");
+    return Config::get_env("SMTP_HOST", "");
   }
   public static function SMTP_PORT()
   {
-    return Config::get_env("SMTP_PORT", "587");
+    return Config::get_env("SMTP_PORT", "");
   }
   public static function SMTP_USER()
   {
