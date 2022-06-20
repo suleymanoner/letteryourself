@@ -38,7 +38,7 @@ class SMTPClient
      */
     public function send_person_recovery_token($person)
     {
-        $message = (new Swift_Message('Reset your account'))
+        $message = (new Swift_Message('Reset your password'))
             ->setFrom(['suleymanoner1999@gmail.com' => 'LetterYourself'])
             ->setTo([$person['email']])
             ->setBody('Here is the recovery token: https://letteryourself.herokuapp.com/login.html?token=' . $person['token']);
